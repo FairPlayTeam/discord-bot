@@ -6,14 +6,15 @@
   "scripts": {
     "start:bot": "bun index.js",
     "dev:bot": "bun --watch index.js",
-    "start:web":"cd Web && bun run build && bun start",
-    "dev:web":"cd Web && bun dev"
+    "start:web": "cd Web && bun run build && bun start",
+    "dev:web": "cd Web && bun dev"
   },
   "author": "SoNaCl, Poulpe Glacé and Greg",
   "license": "MIT",
   "dependencies": {
     "@discordjs/rest": "^2.4.0",
-    "axios": "^1.12.2",
+    "@napi-rs/canvas": "^0.1.88",
+    "axios": "^1.13.2",
     "discord.js": "^14.23.2",
     "dotenv": "^17.2.3",
     "marked": "^16.4.0"

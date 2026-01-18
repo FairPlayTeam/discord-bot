@@ -29,6 +29,10 @@ import { onMessageCreate } from './events/messageCreate.js'
 import { onMessageDelete } from './events/messageDelete.js'
 import { onGuildMemberAdd } from './events/guildMemberAdd.js'
 
+import { loadFont } from './utils/ui.js'
+
+loadFont('fpfont', './src/fonts/fp_font.ttf')
+
 if (!token) {
   console.error('TOKEN is not set; cannot start bot')
   process.exit(1)
