@@ -30,7 +30,7 @@ import fs from 'fs'
 export function onGuildMemberAdd() {
     return async (member) => {
         const memberCount = member.guild.memberCount
-
+        
 		const user = member.user
 		let response
 
@@ -44,6 +44,8 @@ export function onGuildMemberAdd() {
 
 		const avatarBuffer = Buffer.from(response.data)
 		const backgroundBuffer = fs.readFileSync('./src/images/welcome_fp.png')
+		const decorationBuffer = fs.readFileSync('./src/images/avatar_fp.svg')
+		const decoration = await loadImage(decorationBuffer)
 		const canvas = createCanvas(680, 240)
 		const ctx = canvas.getContext('2d')
 
@@ -52,8 +54,10 @@ export function onGuildMemberAdd() {
 
 		ctx.font = 'bold 30px fpfont, Arial'
 		ctx.textAlign = 'center'
-		ctx.fillStyle = '#ffffff'
+		ctx.fillStyle = '#fff'
 		ctx.fillText(`Welcome ${user.globalName || user.username}!`, 420, 120)
+
+		ctx.drawImage(decoration, 44, 44, 136.5, 136.5)
 
         ctx.beginPath()
         ctx.arc(114, 114, 66, 0, Math.PI * 2, true)
@@ -63,7 +67,8 @@ export function onGuildMemberAdd() {
 		const avatar = await loadImage(avatarBuffer)
 		ctx.drawImage(avatar, 48, 48, 132.5, 132.5)
         ctx.restore()
-		
+
+		ctx.drawImage(decoration, 44, 44, 136.5, 136.5)
 
 		const buffer=canvas.toBuffer('image/png')
 		const attachment=new AttachmentBuilder(buffer, {

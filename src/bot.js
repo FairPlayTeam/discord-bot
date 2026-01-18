@@ -85,6 +85,5 @@ client.on(Events.InteractionCreate, async interaction => {
 client.on(Events.MessageCreate, onMessageCreate(store))
 client.on(Events.MessageDelete, onMessageDelete(store))
 client.on(Events.GuildMemberAdd, onGuildMemberAdd())
-
 registerCommands().catch(console.error)
 client.login(token)
