@@ -1,5 +1,7 @@
 git pull
 bun i
+bun upgrade
+bun update
 bun start:bot
 cd ./Web/ 
 bun i 

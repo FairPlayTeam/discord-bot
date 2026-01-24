@@ -1,4 +1,8 @@
+bun upgrade
+bun update
+bun i
 bun start:bot
-cd ./Web/ 
+cd ./Web/
+bun i
 bun build
 bun start
