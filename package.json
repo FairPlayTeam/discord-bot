@@ -12,11 +12,10 @@
   "author": "SoNaCl, Poulpe Glacé and Greg",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/rest": "^2.6.0",
-    "@napi-rs/canvas": "^0.1.88",
-    "axios": "^1.13.2",
+    "@napi-rs/canvas": "^0.1.95",
+    "axios": "^1.13.5",
     "discord.js": "^14.25.1",
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.3.1",
     "marked": "^16.4.2"
   },
   "devDependencies": {

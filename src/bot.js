@@ -23,6 +23,7 @@ import * as addAutoReply from './commands/add_auto_reply.js'
 import * as deleteAutoReply from './commands/delete_auto_reply.js'
 import * as showAutoReply from './commands/show_auto_reply.js'
 import * as rulesShowContainer from './commands/rules_show_container.js'
+import * as credits from './commands/credits.js'
 
 
 import { routeInteraction } from './interactions/router.js'
@@ -68,6 +69,7 @@ const commandModules = [
 	deleteAutoReply,
 	showAutoReply,
 	rulesShowContainer,
+  credits,
 ]
 const commands = commandModules.map(c => c.data.toJSON())
 

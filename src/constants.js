@@ -65,3 +65,7 @@ export const SERVERS = {
   STABLE: '1385601656028270594',
   BETA: '1367910796239175740',
 }
+
+export const LINKS = {
+  GITHUB_DISCORD_BOT: "https://github.com/FairPlayTeam/discord-bot"
+}
