@@ -96,13 +96,17 @@ export class JsonStore {
     const entry = {
       author: message.author.tag,
       content: content,
+      author: message.author.tag,
+      content: content,
       avatar: message.author.displayAvatarURL({ extension: 'png', size: 128 }),
+      time: new Date().toLocaleTimeString(),
       time: new Date().toLocaleTimeString(),
     }
     this.data[guildId].logChannel[channelId].push(entry)
     
     this.save()
   }
+
   async addLogMessageInChannel(guildId,channelId, author, content,avatar){
     this.data[guildId] = this.data[guildId] || {}
     this.data[guildId].logChannel = this.data[guildId].logChannel || {}
@@ -113,10 +117,16 @@ export class JsonStore {
       content: cleanContent,
       avatar: avatar,
       time: new Date().toLocaleTimeString(),
+      author: author,
+      content: cleanContent,
+      avatar: avatar,
+      time: new Date().toLocaleTimeString(),
     }
+    this.data[guildId].logChannel[channelId].push(entry)
     this.data[guildId].logChannel[channelId].push(entry)
     this.save()
   }
+
   async deleteLogMessageChannel(guildId, message){
     const channelId= message.channel.id
     let attachementUrls=""
@@ -130,7 +140,10 @@ export class JsonStore {
     const index = logs.findIndex(entry => entry.author === message.author && entry.content === content);
     logs.splice(index, 1);
     this.data[guildId].logChannel[channelId] =logs
+    this.data[guildId].logChannel[channelId] =logs
     this.save()
+
+
 
 
   }
@@ -230,4 +243,7 @@ async function cleanMessage(text, client, guildId) {
 
     return content;
 }
+
+
+
 
