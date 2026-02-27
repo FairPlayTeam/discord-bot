@@ -1,6 +1,2 @@
-bun i
-bun start:bot
-cd ./Web/
-bun i
-bun build
+echo -e "\e[47;30;1mRESTARTING THE BOT\e[0m"
 bun start

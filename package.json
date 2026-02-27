@@ -7,7 +7,9 @@
     "start:bot": "bun index.js",
     "dev:bot": "bun --watch index.js",
     "start:web": "cd Web && bun run build && bun start",
-    "dev:web": "cd Web && bun dev"
+    "dev:web": "cd Web && bun dev",
+    "start": "bun start:bot & bun start:web",
+    "dev": "bun dev:bot & bun dev:web"
   },
   "author": "SoNaCl, Poulpe Glacé and Greg",
   "license": "MIT",
