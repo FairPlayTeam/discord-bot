@@ -4,6 +4,6 @@ Install bun on https://bun.sh/
 
 `bun i` to install the dependencies
 
-`bun run dev` to watchdog
+`bun dev` to watchdog
 
-`bun run start` to launch
+`bun start` to launch

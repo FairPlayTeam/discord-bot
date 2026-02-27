@@ -38,15 +38,15 @@ export const  IDS = {
     noClose: 'ticket_no-close',
   },
   select:{
-    banned_users:'select_banned_users'
+    banned_users: 'select_banned_users'
   },
   unban :{
-    yes:"unban_yes",
-    no:"unban_no"
+    yes: "unban_yes",
+    no: "unban_no"
   },
   ban :{
-    yes:"ban_yes",
-    no:"ban_no"
+    yes: "ban_yes",
+    no: "ban_no"
   }
 }
 
@@ -56,5 +56,16 @@ export const CHANNELS = {
   VOCAL_EN: '1410636970266464256',
   TEXT_FR: '1385601656758210684',
   TEXT_EN: '1410185878495690752',
-  WELCOME: '1367910796687839324',
+  WELCOME: '1410349855339188255',
+  RULES: '1410349826196901988',
+  TICKET: '1429484550513491978',
+}
+
+export const SERVERS = {
+  STABLE: '1385601656028270594',
+  BETA: '1367910796239175740',
+}
+
+export const LINKS = {
+  GITHUB_DISCORD_BOT: "https://github.com/FairPlayTeam/discord-bot"
 }

@@ -22,12 +22,18 @@ import * as unban from './commands/unban.js'
 import * as addAutoReply from './commands/add_auto_reply.js'
 import * as deleteAutoReply from './commands/delete_auto_reply.js'
 import * as showAutoReply from './commands/show_auto_reply.js'
+import * as rulesShowContainer from './commands/rules_show_container.js'
+import * as credits from './commands/credits.js'
 
 
 import { routeInteraction } from './interactions/router.js'
 import { onMessageCreate } from './events/messageCreate.js'
 import { onMessageDelete } from './events/messageDelete.js'
 import { onGuildMemberAdd } from './events/guildMemberAdd.js'
+
+import { loadFont } from './utils/ui.js'
+
+loadFont('fpfont', './src/fonts/fp_font.ttf')
 
 if (!token) {
   console.error('TOKEN is not set; cannot start bot')
@@ -49,7 +55,22 @@ const client = new Client({
 
 export const store = new JsonStore('data.json',client)
 
-const commandModules = [vanish, ticketsShow, ticketsConfig, ban, say, update, restart, snipe, unban, addAutoReply, deleteAutoReply, showAutoReply]
+const commandModules = [
+	vanish,
+	ticketsShow,
+	ticketsConfig,
+	ban,
+	say,
+	update,
+	restart,
+	snipe,
+	unban,
+	addAutoReply,
+	deleteAutoReply,
+	showAutoReply,
+	rulesShowContainer,
+  credits,
+]
 const commands = commandModules.map(c => c.data.toJSON())
 
 const rest = new REST({ version: '10' }).setToken(token)
@@ -81,6 +102,5 @@ client.on(Events.InteractionCreate, async interaction => {
 client.on(Events.MessageCreate, onMessageCreate(store))
 client.on(Events.MessageDelete, onMessageDelete(store))
 client.on(Events.GuildMemberAdd, onGuildMemberAdd())
-
 registerCommands().catch(console.error)
 client.login(token)

@@ -1,98 +1,105 @@
 {
-  "presence": { "watching": "Regarde les membres de FairPlay" },
-  "commands": {
-    "vanish": { "on": "Tu es maintenant invisible 👀", "off": "Tu n'es plus invisible 🫣" },
-    "tickets_show": {
-      "sent": "Le container a été envoyé !",
-      "heading": "### 🎫 Besoin de contacter l'équipe ? Vous êtes au bon endroit !\n**Veuillez sélectionner une langue pour continuer :**",
-      "help": "Aide",
-      "candidate": "Postuler"
-    },
-    "tickets_config": {
-      "choose_lang": "### Choisissez votre langue",
-      "lang_en": "English",
-      "lang_fr": "Français"
-    },
-    "ban": {
-      "by": "Banni par",
-      "error1": "Je n'ai pas pu bannir",
-      "error2": "Sûrement un administrateur ou moi même.",
-      "success": "BANNI",
-      "confirmation": "Êtes-vous sûr de vouloir bannir <@{userId}>?"
-    },
-    "unban": {
-      "by": "Débanni par",
-      "error1": "Je n'ai pas pu débannir",
-      "error2": "Sûrement un administrateur ou moi même.",
-      "success": "<@{userId}> à été débanni",
-      "confirmation": "Êtes-vous sûr de vouloir débannir <@{userId}>?",
-      "select_placeholder": "Sélectionnez un utilisateur banni...",
-      "select_title" : "Séléctionnez l'utilisateur banni que vous voulez débannir",
-      "noUsers" : "Aucun utilisateur n'a été banni de ce serveur"
-    }
-  },
-  "tickets": {
-    "type": {
-      "menu_title": "### Choisissez un type de ticket\nSi vous souhaitez faire un partenariat, veuillez contacter un membre du personnel directement en MP.",
-      "placeholder": "Sélectionnez un type de ticket",
-      "help": "Aide",
-      "candidate": "Postuler",
-      "report" : "Reporter un bug"
-    },
-    "modal": {
-      "candidate_title": "Faire partie de l'équipe de FairPlay",
-      "age_label": "Quel âge avez-vous ?",
-      "age_placeholder": "16 ans",
-      "position_label": "Quel poste voulez-vous occuper ?",
-      "position_placeholder": "Développeur",
-      "detail_label": "Que voulez vous faire ?",
-      "detail_placeholder": "Je veux être développeur chez FairPlay car je souhaite créer un bot pour rendre le serveur actif",
-      "qualities_label": "Quelles sont vos qualités et vos défauts ?",
-      "qualities_placeholder": "Je suis un joueur d'équipe, donc j'ai de bonnes compétences en communication...",
-      "remunerated_label": "Je veux être rémunéré",
-      "remunerated_placeholder": "Oui"
-    },
-    "new": {
-      "help": "### Bienvenue dans votre nouveau ticket <@{userId}>! <:Pepega:1400572073881112666> \nType de ticket : `aide`\n**__Veuillez décrire votre problème en détail et l'équipe vous répondra dans les temps.__** \n\n⚠️Les messages sont enregistrés par le bot. Lorsque vous supprimez un message, il est aussi supprimé de nos enregistrement. Mais, notre bot ne peut pas supprimer les mesages ne contenant pas de texte⚠️",
-      "candidate": "### Bienvenue dans votre nouveau ticket <@{userId}>! <:Pepega:1400572073881112666> \nType de ticket : `postuler`\nLangue du ticket : `Français`\nÂge : `{age}`\nPoste désiré : `{position}`\nDétails : ```{detail}```\nQualités/défauts : ```{qualities}```\nVeut être rémunéré ? : `{remunerated}`\n⚠️Les messages sont enregistrés par le bot. Lorsque vous supprimez un message, il est aussi supprimé de nos enregistrement. Mais, notre bot ne peut pas supprimer les mesages ne contenant pas de texte⚠️",
-      "report": "### Bienvenue dans votre nouveau ticket <@{userId}>! <:Pepega:1400572073881112666> \nType de ticket : `rapport de bug`\n**__Veuillez décrire le problème en détail. Merci de votre contribution**\n\n⚠️⚠️Les messages sont enregistrés par le bot. Lorsque vous supprimez un message, il est aussi supprimé de nos enregistrement. Mais, notre bot ne peut pas supprimer les mesages ne contenant pas de texte⚠️"
-    },
-    "buttons": {
-      "close": "Fermer",
-      "process": "Traiter",
-      "yes": "Oui",
-      "no": "Non"
-    },
-    "processed": {
-      "notice": "Ce ticket est maintenant traité par <@{userId}>!",
-      "reply": "Vous traitez maintenant ce ticket !"
-    },
-    "close": {
-      "confirm": "Êtes-vous sûr de vouloir fermer ce ticket ?",
-      "soon": "Ce ticket sera fermé dans un instant.",
-      "mpLog": "Un de vos ticket à été fermé. Vous pouvez consulter l'historique de la conversation de votre ticket à cette adresse https://discord.fairplay.video/{channelId}"
-    }
-  },
-  "config": {
-    "step1": {
-      "title": "### Dans quelle catégorie souhaitez-vous que les tickets soient créés ?",
-      "create": "Créer une catégorie",
-      "use": "Utiliser une catégorie existante",
-      "none": "Ne pas utiliser de catégorie"
-    },
-    "step2": { "select_category": "### Séléctionnez une catégorie" },
-    "step3": { "select_role": "### Séléctionnez un rôle staff (à ping)" },
-    "select": {
-      "placeholder_category": "Aucune catégorie séléctionnée",
-      "placeholder_role": "Aucun rôle séléctionné"
-    },
-    "modal": {
-      "create_category": {
-        "title": "Créer une catégorie",
-        "name": "Nom de la catégorie",
-        "placeholder": "Entrez le nom de la catégorie"
-      }
-    },
-    "error": "Une erreur est survenue lors de la création de la catégorie. Veuillez réessayer plus tard ou contacter le développeur."
-  }
+	"presence": { "watching": "Regarde les membres de FairPlay" },
+	"commands": {
+		"vanish": { "on": "Tu es maintenant invisible 👀", "off": "Tu n'es plus invisible 🫣" },
+		"tickets_show": {
+			"sent": "Le container a été envoyé !",
+			"heading": "### 🎫 Besoin de contacter l'équipe ? Vous êtes au bon endroit !\n**Veuillez sélectionner une langue pour continuer :**",
+			"help": "Aide",
+			"candidate": "Postuler"
+		},
+		"tickets_config": {
+			"choose_lang": "### Choisissez votre langue",
+			"lang_en": "English",
+			"lang_fr": "Français"
+		},
+		"ban": {
+			"by": "Banni par",
+			"error1": "Je n'ai pas pu bannir",
+			"error2": "Sûrement un administrateur ou moi même.",
+			"success": "BANNI",
+			"confirmation": "Êtes-vous sûr de vouloir bannir <@{userId}>?"
+		},
+		"unban": {
+			"by": "Débanni par",
+			"error1": "Je n'ai pas pu débannir",
+			"error2": "Sûrement un administrateur ou moi même.",
+			"success": "<@{userId}> à été débanni",
+			"confirmation": "Êtes-vous sûr de vouloir débannir <@{userId}>?",
+			"select_placeholder": "Sélectionnez un utilisateur banni...",
+			"select_title" : "Séléctionnez l'utilisateur banni que vous voulez débannir",
+			"noUsers" : "Aucun utilisateur n'a été banni de ce serveur"
+		},
+		"rules_show": {
+			"texts" : "[\"## 🔸 Règles du serveur\",\"### 1. Respect et courtoisie\\n1.1 Soyez respectueux envers tous les membres. Toute forme de harcèlement, de discrimination ou propos haineux ne seront pas tolérés.\\n1.2 Tous les conflits doivent être traités d'une bonne manière. Si nécessaire, contactez un modérateur ou un administrateur pour s'arranger.\",\"### 2. Contenu approprié\\n2.1 Gardez les discussions adaptées aux diverses audiences. Évitez les propos sensibles tels que la politique, la religion, et le contenu pour adultes.\\n2.2 Pas de spam (cela inclus les tests avec les \\\"messages-réponses\\\" par <@1428353737180708945>), de publicité, ou partager des liens suspicieux.\",\"### 3. Langage et comportement\\n3.1 Utilisez un langage approprié, Évitez les insultes, le langage offensant ou vulgaire.\\n3.2 Respectez les différents canaux et leurs thématiques. Ne détournez pas un canal de son objectif initial.\",\"### 4. Modération\\n4.1 Les modérateurs sont là pour veiller au bon fonctionnement du serveur. En cas de désaccord, merci de nous contacter via un <#1429484550513491978> ou dans <#1385601656758210684>. Veuillez rester calme et respectueux.\\n4.2 En cas de non-respect du règlement, des sanctions telles que des avertissements, des exclusions temporaires, ou des bannissements peuvent être appliquées.\",\"### 5. Confidentialité et Sécurité\\n5.1 Ne partagez pas d'informations personnelles sur le serveur.\\n5.2 Soyez vigilant face aux escroqueries et protégez vos données personnelles\\n5.3 Si vous découvrez un bug, une faille de sécurité ou un exploit, **ne le testez surtout pas en public et ne l'exploitez pas.** Signalez immédiatement le problème en privé au staff via un <#1429484550513491978> ou en MP à un administrateur. L’exploitation volontaire, l’incitation d’autres personnes à exploiter la faille, ou le partage d’un proof-of-concept en public sont interdits et entraîneront des sanctions tels que l'avertissement, l'exclusion temporaire, ou le bannissement selon la gravité.\",\"# NE PAS MENTIONNER FOXTER SVPP\\nMaintenant que c'est dit, bienvenue sur le serveur ! 👋\"]"
+		},
+		"credits": {
+			"texts": "[\"## Crédits\\n**Development** :\\n* Greg (gregde44)\\n* Poulpe Glacé (donquiecongue)\\n* SoNaCl (sonacl)\\n* Spectra (spectrafire)\\n* Tintin (tintin3)\\n**Idées** :\\n* Annaëg (annaeg_qg)\\n* Greg (gregde44)\\n* Poulpe Glacé (donquiecongue)\\n* Spectra (spectrafire)\\n**Graphisme** :\\n* Poulpe Glacé (donquiecongue)\",\"### → Vous voulez apparaître dans les crédits ? Go contribuer sur le GitHub :)\"]",
+			"button_label": "Contribuer"
+		}
+	},
+	"tickets": {
+		"type": {
+			"menu_title": "### Choisissez un type de ticket\nSi vous souhaitez faire un partenariat, veuillez contacter un membre du personnel directement en MP.",
+			"placeholder": "Sélectionnez un type de ticket",
+			"help": "Aide",
+			"candidate": "Postuler",
+			"report" : "Reporter un bug"
+		},
+		"modal": {
+			"candidate_title": "Faire partie de l'équipe de FairPlay",
+			"age_label": "Quel âge avez-vous ?",
+			"age_placeholder": "16 ans",
+			"position_label": "Quel poste voulez-vous occuper ?",
+			"position_placeholder": "Développeur",
+			"detail_label": "Que voulez vous faire ?",
+			"detail_placeholder": "Je veux être développeur chez FairPlay car je souhaite créer un bot pour rendre le serveur actif",
+			"qualities_label": "Quelles sont vos qualités et vos défauts ?",
+			"qualities_placeholder": "Je suis un joueur d'équipe, donc j'ai de bonnes compétences en communication...",
+			"remunerated_label": "Je veux être rémunéré",
+			"remunerated_placeholder": "Oui"
+		},
+		"new": {
+			"help": "### Bienvenue dans votre nouveau ticket <@{userId}>! <:Pepega:1400572073881112666> \nType de ticket : `aide`\n**__Veuillez décrire votre problème en détail et l'équipe vous répondra dans les temps.__** \n\n⚠️Les messages sont enregistrés par le bot. Lorsque vous supprimez un message, il est aussi supprimé de nos enregistrement. Mais, notre bot ne peut pas supprimer les mesages ne contenant pas de texte⚠️",
+			"candidate": "### Bienvenue dans votre nouveau ticket <@{userId}>! <:Pepega:1400572073881112666> \nType de ticket : `postuler`\nLangue du ticket : `Français`\nÂge : `{age}`\nPoste désiré : `{position}`\nDétails : ```{detail}```\nQualités/défauts : ```{qualities}```\nVeut être rémunéré ? : `{remunerated}`\n⚠️Les messages sont enregistrés par le bot. Lorsque vous supprimez un message, il est aussi supprimé de nos enregistrement. Mais, notre bot ne peut pas supprimer les mesages ne contenant pas de texte⚠️",
+			"report": "### Bienvenue dans votre nouveau ticket <@{userId}>! <:Pepega:1400572073881112666> \nType de ticket : `rapport de bug`\n**__Veuillez décrire le problème en détail. Merci de votre contribution**\n\n⚠️⚠️Les messages sont enregistrés par le bot. Lorsque vous supprimez un message, il est aussi supprimé de nos enregistrement. Mais, notre bot ne peut pas supprimer les mesages ne contenant pas de texte⚠️"
+		},
+		"buttons": {
+			"close": "Fermer",
+			"process": "Traiter",
+			"yes": "Oui",
+			"no": "Non"
+		},
+		"processed": {
+			"notice": "Ce ticket est maintenant traité par <@{userId}>!",
+			"reply": "Vous traitez maintenant ce ticket !"
+		},
+		"close": {
+			"confirm": "Êtes-vous sûr de vouloir fermer ce ticket ?",
+			"soon": "Ce ticket sera fermé dans un instant.",
+			"mpLog": "Un de vos ticket à été fermé. Vous pouvez consulter l'historique de la conversation de votre ticket à cette adresse https://discord.fairplay.video/{channelId}"
+		}
+	},
+	"config": {
+		"step1": {
+			"title": "### Dans quelle catégorie souhaitez-vous que les tickets soient créés ?",
+			"create": "Créer une catégorie",
+			"use": "Utiliser une catégorie existante",
+			"none": "Ne pas utiliser de catégorie"
+		},
+		"step2": { "select_category": "### Séléctionnez une catégorie" },
+		"step3": { "select_role": "### Séléctionnez un rôle staff (à ping)" },
+		"select": {
+			"placeholder_category": "Aucune catégorie séléctionnée",
+			"placeholder_role": "Aucun rôle séléctionné"
+		},
+		"modal": {
+			"create_category": {
+				"title": "Créer une catégorie",
+				"name": "Nom de la catégorie",
+				"placeholder": "Entrez le nom de la catégorie"
+			}
+		},
+		"error": "Une erreur est survenue lors de la création de la catégorie. Veuillez réessayer plus tard ou contacter le développeur."
+	}
 }

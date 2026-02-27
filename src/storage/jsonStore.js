@@ -17,9 +17,9 @@ export class JsonStore {
   }
 
   ensureGuildUser(guildId, userId) {
-    this.data[guildId] = this.data[guildId] || {}
-    this.data[guildId][userId] = this.data[guildId][userId] || {}
-    return this.data[guildId][userId]
+    (this.data[guildId] ??= {});
+    (this.data[guildId][userId] ??= {});
+    return this.data[guildId][userId];
   }
 
   toggleVanish(guildId, userId) {
@@ -58,15 +58,10 @@ export class JsonStore {
   }
   isTicketChannel(guildId, channel) {
     this.data[guildId] = this.data[guildId] || {}
-    this.data[guildId].channeConfig = this.data[guildId].channeConfig || {}
-    this.data[guildId].channeConfig[channel.id] = this.data[guildId].channeConfig[channel.id]  || {}
+    this.data[guildId].channelConfig = this.data[guildId].channelConfig || {}
+    this.data[guildId].channelConfig[channel.id] = this.data[guildId].channelConfig[channel.id]  || {}
 
-    return !!this.data[guildId].channeConfig[channel.id].isTicket
-    this.data[guildId] = this.data[guildId] || {}
-    this.data[guildId].channeConfig = this.data[guildId].channeConfig || {}
-    this.data[guildId].channeConfig[channel.id] = this.data[guildId].channeConfig[channel.id]  || {}
-
-    return !!this.data[guildId].channeConfig[channel.id].isTicket
+    return !!this.data[guildId].channelConfig[channel.id].isTicket
   }
   setTicketChannel(guildId, channel, userId) {
     this.data[guildId] = this.data[guildId] || {}
@@ -201,13 +196,10 @@ export class JsonStore {
   }
 }
 
-
-
 async function cleanMessage(text, client, guildId) {
     let content = text;
     const userIds = [...text.matchAll(/<@!?(\d+)>/g)].map(m => m[1]);
     const roleIds = [...text.matchAll(/<@&(\d+)>/g)].map(m => m[1]);
-
 
     const users = {};
     for (const id of userIds) {
@@ -233,7 +225,6 @@ async function cleanMessage(text, client, guildId) {
     } catch {
     }
 
-
     content = content.replace(/<@!?(\d+)>/g, (match, id) => {
         return users[id] ? `@${users[id]}` : match;
     });
@@ -243,11 +234,11 @@ async function cleanMessage(text, client, guildId) {
     });
 
     content = content.replace(/<:([a-zA-Z0-9_]+):(\d+)>/g,
-        (match, name, id) => `<img src="https://cdn.discordapp.com/emojis/${id}.png" alt="${name}" class="emoji" style="width:24px;height:24px;vertical-align:middle;display:inline-block;">`
+        (name, id) => `<img src="https://cdn.discordapp.com/emojis/${id}.png" alt="${name}" class="emoji" style="width:24px;height:24px;vertical-align:middle;display:inline-block;">`
     );
 
     content = content.replace(/<a:([a-zA-Z0-9_]+):(\d+)>/g,
-        (match, name, id) => `<img src="https://cdn.discordapp.com/emojis/${id}.gif" alt="${name}" class="emoji" style="width:24px;height:24px;vertical-align:middle;display:inline-block;">`
+        (name, id) => `<img src="https://cdn.discordapp.com/emojis/${id}.gif" alt="${name}" class="emoji" style="width:24px;height:24px;vertical-align:middle;display:inline-block;">`
     );
 
     return content;
