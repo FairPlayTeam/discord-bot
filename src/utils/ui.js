@@ -1,34 +1,74 @@
 import {
-  ActionRowBuilder,
+	ActionRowBuilder,
 	TextDisplayBuilder,
+	TextInputBuilder,
+	LabelBuilder,
 } from 'discord.js'
 import {
-  LANG,
-  SERVERS,
-} from '../constants.js'
+	LANG,
+	SERVERS,
+} from '../ants.js'
 import { GlobalFonts } from '@napi-rs/canvas'
 
-export function wrapInRow(...components) {
-  return new ActionRowBuilder().addComponents(...components)
+function wrapInRow(...components) {
+	return new ActionRowBuilder().addComponents(...components)
 }
 
-export function extractLang(customId, startIndex = -1) {
-  const parts = customId.split(/[-$]/)
-  return parts[parts.length + startIndex] || LANG.DEFAULT
+function extractLang(customId, startIndex = -1) {
+	 parts = customId.split(/[-$]/)
+	return parts[parts.length + startIndex] || LANG.DEFAULT
 }
 
-export function createChannelLink(channelId, guildId = SERVERS.STABLE) {
-  return `https://discord.com/channels/${guildId}/${channelId}`
+function createChannelLink(channelId, guildId = SERVERS.STABLE) {
+	return `https://discord.com/channels/${guildId}/${channelId}`
 }
 
-export function loadFont(name, path) {
-  GlobalFonts.registerFromPath(path, name)
+function loadFont(name, path) {
+	GlobalFonts.registerFromPath(path, name)
 }
 
-export function formatText(text) {
+function formatText(text) {
 	return new TextDisplayBuilder().setContent(text)
 }
 
-export function findMenuSelectionFromInteraction (interaction) {
+function findMenuSelectionFromInteraction (interaction) {
 	return interaction.values[0]
+}
+
+const createTextInputLabel = (customId, style, placeholder, title, { description, isRequired = false, minLength, maxLength }) => {
+	const textInput = new TextInputBuilder()
+		.setCustomId(customId)
+		.setStyle(style)
+		.setPlaceholder(placeholder)
+
+	if (isRequired) {
+		textInput.setRequired(true)
+	}
+
+	if (minLength) {
+		textInput.setMinLength(minLength)
+	}
+
+	if (maxLength) {
+		textInput.setMaxLength(maxLength)
+	}
+
+	const textLabel = new LabelBuilder()
+		.setLabel(title)
+		.setTextInputComponent(textInput)
+
+	if (description) {
+		textLabel.setDescription(description)
+	}
+
+	return textLabel
+}
+
+export {
+	wrapInRow,
+	extractLang,
+	createChannelLink,
+	loadFont,
+	formatText,
+	findMenuSelectionFromInteraction,
 }
