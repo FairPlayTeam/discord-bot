@@ -1,3 +1,5 @@
+"use strict"
+
 import dotenv from 'dotenv'
 dotenv.config({ quiet: true })
 const token = process.env.TOKEN
