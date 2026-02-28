@@ -57,7 +57,7 @@
 			"qualities_label": "Quelles sont vos qualités et vos défauts ?",
 			"qualities_placeholder": "Je suis un joueur d'équipe, donc j'ai de bonnes compétences en communication...",
 			"remunerated_label": "Je veux être rémunéré",
-			"remunerated_placeholder": "Oui"
+			"remunerated_placeholder": "Faites un choix ;)"
 		},
 		"new": {
 			"help": "### Bienvenue dans votre nouveau ticket <@{userId}>! <:Pepega:1400572073881112666> \nType de ticket : `aide`\n**__Veuillez décrire votre problème en détail et l'équipe vous répondra dans les temps.__** \n\n⚠️Les messages sont enregistrés par le bot. Lorsque vous supprimez un message, il est aussi supprimé de nos enregistrement. Mais, notre bot ne peut pas supprimer les mesages ne contenant pas de texte⚠️",
