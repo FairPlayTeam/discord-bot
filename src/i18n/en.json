@@ -1,5 +1,5 @@
 {
-	"presence": { "watching": "Watching FairPlay's members" },
+	"presence": { "watching": "Watching Rewind's members" },
 	"commands": {
 		"vanish": { "on": "You are now vanished 👀", "off": "You are no longer vanished 🫣" },
 		"tickets_show": {
@@ -46,13 +46,15 @@
 			"report": "Report a bug"
 		},
 		"modal": {
-			"candidate_title": "Become staff of FairPlay",
+			"candidate_title": "Become staff of Rewind",
 			"age_label": "How old are you?",
 			"age_placeholder": "16 years old",
+			"age_description": "Your age will only be used to evaluate you and will not be stored, only in logs you will receive.",
 			"position_label": "What position are you applying for?",
 			"position_placeholder": "Developer",
 			"detail_label": "Why do you want to do this in detail?",
-			"detail_placeholder": "I want to be developer in FairPlay because I want to create a bot to become the server active",
+			"detail_placeholder": "I want to be developer in Rewind because I want to create a bot to become the server active",
+			"detail_description": "Tell us why do you want to be in the staff.",
 			"qualities_label": "What are your qualities and your defects?",
 			"qualities_placeholder": "I am a team player, then I have good communication skills...",
 			"remunerated_label": "I want to be remunerated",

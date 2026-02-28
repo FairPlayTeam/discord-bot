@@ -3,11 +3,12 @@ import {
 	TextDisplayBuilder,
 	TextInputBuilder,
 	LabelBuilder,
+	TextInputStyle,
 } from 'discord.js'
 import {
 	LANG,
 	SERVERS,
-} from '../ants.js'
+} from '../constants.js'
 import { GlobalFonts } from '@napi-rs/canvas'
 
 function wrapInRow(...components) {
@@ -15,7 +16,7 @@ function wrapInRow(...components) {
 }
 
 function extractLang(customId, startIndex = -1) {
-	 parts = customId.split(/[-$]/)
+	const parts = customId.split(/[-$]/)
 	return parts[parts.length + startIndex] || LANG.DEFAULT
 }
 
@@ -38,7 +39,7 @@ function findMenuSelectionFromInteraction (interaction) {
 const createTextInputLabel = (customId, style, placeholder, title, { description, isRequired = false, minLength, maxLength }) => {
 	const textInput = new TextInputBuilder()
 		.setCustomId(customId)
-		.setStyle(style)
+		.setStyle(style === 'short' ? TextInputStyle.Short : TextInputStyle.Paragraph)
 		.setPlaceholder(placeholder)
 
 	if (isRequired) {
@@ -71,4 +72,5 @@ export {
 	loadFont,
 	formatText,
 	findMenuSelectionFromInteraction,
+	createTextInputLabel,
 }
