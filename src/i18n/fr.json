@@ -1,5 +1,5 @@
 {
-	"presence": { "watching": "Regarde les membres de FairPlay" },
+	"presence": { "watching": "Regarde les membres de Rewind" },
 	"commands": {
 		"vanish": { "on": "Tu es maintenant invisible 👀", "off": "Tu n'es plus invisible 🫣" },
 		"tickets_show": {
@@ -47,13 +47,15 @@
 			"report" : "Reporter un bug"
 		},
 		"modal": {
-			"candidate_title": "Faire partie de l'équipe de FairPlay",
+			"candidate_title": "Faire partie de l'équipe de Rewind",
 			"age_label": "Quel âge avez-vous ?",
 			"age_placeholder": "16 ans",
+			"age_description": "Votre âge ne sera usé que pour vous évaluer, en aucun cas stocké sauf dans les logs que vous aurez.",
 			"position_label": "Quel poste voulez-vous occuper ?",
 			"position_placeholder": "Développeur",
 			"detail_label": "Que voulez vous faire ?",
-			"detail_placeholder": "Je veux être développeur chez FairPlay car je souhaite créer un bot pour rendre le serveur actif",
+			"detail_placeholder": "Je veux être développeur chez Rewind car je souhaite créer un bot pour rendre le serveur actif",
+			"detail_description": "Dites-nous pourquoi vous voulez faire partie de l'équipe.",
 			"qualities_label": "Quelles sont vos qualités et vos défauts ?",
 			"qualities_placeholder": "Je suis un joueur d'équipe, donc j'ai de bonnes compétences en communication...",
 			"remunerated_label": "Je veux être rémunéré",

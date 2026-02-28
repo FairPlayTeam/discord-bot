@@ -27,7 +27,8 @@ import {
 
 import {
 	wrapInRow,
-	extractLang
+	extractLang,
+	createTextInputLabel,
 } from '../utils/ui.js'
 
 import {
@@ -125,22 +126,31 @@ export async function handleButton(interaction, context) {
 				.setCustomId(`${IDS.tickets.modalGetUserInfosCandidate}-${lang}`)
 				.setTitle(t(lang, 'tickets.modal.candidate_title'))
 
-			const ageInput = new TextInputBuilder()
-				.setCustomId('age')
-				.setStyle(TextInputStyle.Short)
-				.setLabel(t(lang, 'tickets.modal.age_label'))
-				.setPlaceholder(t(lang, 'tickets.modal.age_placeholder'))
-				.setRequired(true)
-				.setMinLength(2)
-				.setMaxLength(12)
-			const positionInput = new TextInputBuilder()
-				.setCustomId('position')
-				.setStyle(TextInputStyle.Short)
-				.setLabel(t(lang, 'tickets.modal.position_label'))
-				.setPlaceholder(t(lang, 'tickets.modal.position_placeholder'))
-				.setRequired(true)
-				.setMinLength(5)
-				.setMaxLength(25)
+			const ageLabel = createTextInputLabel(
+					'age',
+					'short',
+					t(lang, 'tickets.modal.age_placeholder'),
+					t(lang, 'tickets.modal.age_label'),
+					{
+						description: t(lang, 'tickets.modal.age_description'),
+						isRequired: true,
+						minLength: 2,
+						maxLength: 12
+					}
+				)
+
+			const positionLabel = createTextInputLabel(
+					'position',
+					'short',
+					t(lang, 'tickets.modal.position_placeholder'),
+					t(lang, 'tickets.modal.position_label'),
+					{
+						isRequired: true,
+						minLength: 5,
+						maxLength: 25
+					}
+				)
+
 			const detailInput = new TextInputBuilder()
 				.setCustomId('detail')
 				.setStyle(TextInputStyle.Paragraph)
@@ -176,12 +186,14 @@ export async function handleButton(interaction, context) {
 				.setRequired(true)
 
 			const remuneratedLabel = new LabelBuilder()
-				.setLabel(EMOJIS.YES_OR_NO)
+				.setLabel(t(lang, 'tickets.modal.remunerated_label'))
 				.setStringSelectMenuComponent(remuneratedMenu)
 
-			modal.addComponents(
-					wrapInRow(ageInput),
-					wrapInRow(positionInput),
+			modal.addLabelComponents(
+					ageLabel,
+					positionLabel,
+				)
+				.addComponents(
 					wrapInRow(detailInput),
 					wrapInRow(qualitiesInput)
 				)

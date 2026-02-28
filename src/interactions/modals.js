@@ -1,6 +1,11 @@
 import { MessageFlags } from 'discord.js'
 import { IDS } from '../constants.js'
-import { extractLang } from '../utils/ui.js'
+
+import {
+  extractLang,
+  findMenuSelectionFromInteraction,
+} from '../utils/ui.js'
+
 import { createCandidateTicket } from '../tickets/types/candidate.js'
 import { handleCreateCategoryModal } from '../tickets/interactions/config.js'
 
@@ -12,8 +17,9 @@ export async function handleModal(interaction, context) {
       position: interaction.fields.getTextInputValue('position'),
       detail: interaction.fields.getTextInputValue('detail'),
       qualities: interaction.fields.getTextInputValue('qualities'),
-      remunerated: interaction.fields.getTextInputValue('remunerated'),
+      remunerated: findMenuSelectionFromInteraction(interaction.fields.getStringSelectValues('remunerated')),
     }
+    console.log(remunerated)
     const lang = extractLang(interaction.customId)
     await interaction.deferReply({ flags: MessageFlags.Ephemeral })
 

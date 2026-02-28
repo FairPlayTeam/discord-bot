@@ -104,7 +104,7 @@ export function onGuildMemberAdd() {
             .addTextDisplayComponents(text2)
             .addActionRowComponents(actionRow)
 
-        const channel = await member.guild.channels.cache.get(CHANNELS.WELCOME)
+        const channel = await member.guild.channels.cache.get(CHANNELS.ARRIVALS)
         await channel.send({
             flags: MessageFlags.IsComponentsV2,
             components: [container],
