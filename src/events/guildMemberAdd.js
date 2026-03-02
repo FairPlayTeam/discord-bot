@@ -88,7 +88,7 @@ export function onGuildMemberAdd() {
         const buttonChat = new ButtonBuilder()
             .setLabel("Chat with our community!")
             .setStyle(ButtonStyle.Link)
-            .setURL(createChannelLink(CHANNELS.WELCOME))
+            .setURL(createChannelLink(CHANNELS.TEXT_EN))
 
         const actionRow = new ActionRowBuilder().addComponents(buttonViewRules, buttonChat)
 

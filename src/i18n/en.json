@@ -103,5 +103,9 @@
 			}
 		},
 		"error": "An error occurred while creating the category. Please try again later or contact the developer"
+	},
+	"rules": {
+		"accepted": "You accepted the rules, so you received the role <@&{roleId}>",
+		"already_accepted": "You already accepted the rules."
 	}
 }

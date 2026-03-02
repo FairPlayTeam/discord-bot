@@ -6,8 +6,6 @@ import {
 	MessageFlags,
 	ModalBuilder,
 	TextDisplayBuilder,
-	TextInputBuilder,
-	TextInputStyle,
 	MediaGalleryItemBuilder,
 	MediaGalleryBuilder,
 	StringSelectMenuOptionBuilder,
@@ -17,18 +15,20 @@ import {
 
 import {
 	IDS,
-	EMOJIS
+	EMOJIS,
+	LANG,
+	ROLES,
 } from '../constants.js'
 
 import {
 	t,
-	getLangFromInteraction
+	getLangFromInteraction,
 } from '../i18n/index.js'
 
 import {
-	wrapInRow,
 	extractLang,
 	createTextInputLabel,
+	verifyARole,
 } from '../utils/ui.js'
 
 import {
@@ -60,6 +60,8 @@ function getButtonType(customId) {
 	if (customId.startsWith(IDS.unban.yes)) return 'UNBAN_YES'
 	if (customId.startsWith(IDS.ban.no)) return 'BAN_NO'
 	if (customId.startsWith(IDS.ban.yes)) return 'BAN_YES'
+	if (customId.startsWith(IDS.rules.changeLangPrefix)) return 'RULES_CHANGE_LANG'
+	if (customId.startsWith(IDS.rules.accept)) return 'RULES_ACCEPT'
 	return null
 }
 
@@ -68,6 +70,36 @@ export async function handleButton(interaction, context) {
 	const { store } = context || {}
 
 	switch (buttonType) {
+		case 'RULES_ACCEPT': {
+			await interaction.deferReply({ flags: MessageFlags.Ephemeral })
+
+			const lang = getLangFromInteraction(interaction)
+
+			if (verifyARole(interaction.member, ROLES.RULES_ACCEPTED)) {
+				await interaction.editReply(t(lang, 'rules.already_accepted'))
+			} else {
+				await interaction.member.roles.add(ROLES.RULES_ACCEPTED)
+
+				await interaction.editReply(t(lang, 'rules.accepted', { roleId: ROLES.RULES_ACCEPTED }))
+			}
+
+			return true
+		}
+
+		case 'RULES_CHANGE_LANG': {
+			const texts = JSON.parse(t(LANG.FR, 'commands.rules_show.texts'))
+
+			const modal = new ModalBuilder()
+				.setTitle(texts.shift())
+				.setCustomId('rules_accept')
+			
+			const text = new TextDisplayBuilder().setContent(texts.join('\n'))
+
+			modal.addTextDisplayComponents(text)
+			
+			await interaction.showModal(modal)
+			return true
+		}
 		case 'TICKETS_LANG': {
 			await interaction.deferReply({ flags: MessageFlags.Ephemeral })
 			const lang = extractLang(interaction.customId,-1)
@@ -151,22 +183,29 @@ export async function handleButton(interaction, context) {
 					}
 				)
 
-			const detailInput = new TextInputBuilder()
-				.setCustomId('detail')
-				.setStyle(TextInputStyle.Paragraph)
-				.setLabel(t(lang, 'tickets.modal.detail_label'))
-				.setPlaceholder(t(lang, 'tickets.modal.detail_placeholder'))
-				.setRequired(true)
-				.setMinLength(1)
-				.setMaxLength(1500)
-			const qualitiesInput = new TextInputBuilder()
-				.setCustomId('qualities')
-				.setStyle(TextInputStyle.Paragraph)
-				.setLabel(t(lang, 'tickets.modal.qualities_label'))
-				.setPlaceholder(t(lang, 'tickets.modal.qualities_placeholder'))
-				.setRequired(true)
-				.setMinLength(1)
-				.setMaxLength(1500)
+			const detailLabel = createTextInputLabel(
+					'detail',
+					'paragraph',
+					t(lang, 'tickets.modal.detail_placeholder'),
+					t(lang, 'tickets.modal.detail_label'),
+					{
+						isRequired: true,
+						minLength: 1,
+						maxLength: 1500,
+					}
+				)
+			
+			const qualitiesLabel = createTextInputLabel(
+					'qualities',
+					'paragraph',
+					t(lang, 'tickets.modal.qualities_placeholder'),
+					t(lang, 'tickets.modal.qualities_label'),
+					{
+						isRequired: true,
+						minLength: 1,
+						maxLength: 1500,
+					}
+				)
 				
 			const options = [
 				new StringSelectMenuOptionBuilder()
@@ -192,12 +231,10 @@ export async function handleButton(interaction, context) {
 			modal.addLabelComponents(
 					ageLabel,
 					positionLabel,
+					detailLabel,
+					qualitiesLabel,
+					remuneratedLabel,
 				)
-				.addComponents(
-					wrapInRow(detailInput),
-					wrapInRow(qualitiesInput)
-				)
-				.addLabelComponents(remuneratedLabel)
 			
 			await interaction.showModal(modal)
 			return true

@@ -1,28 +1,25 @@
-import { generateRules } from "../commands/rules_show_container.js"
 import { generateCredits } from "../commands/credits.js"
 import { findMenuSelectionFromInteraction } from "../utils/ui.js"
-import { MessageFlags } from "discord.js"
+import { t } from '../i18n/index.js'
+import { LANG } from '../constants.js'
+
+import {
+	MessageFlags,
+	ModalBuilder,
+	TextDisplayBuilder,
+} from "discord.js"
 
 export async function handleMenus (interaction) {
 	const menu = findMenuSelectionFromInteraction(interaction)
 
 	switch (interaction.customId) {
-		case "rules_select-language":
-			await interaction.deferUpdate()
-			await interaction.editReply({
-				flags: MessageFlags.IsComponentsV2,
-				components: [generateRules(menu)]
-			})
-
-			return;
-		case "credits_select-language":
-			await interaction.deferUpdate()
-			await interaction.editReply({
+		case "credits_select-language": {
+			await interaction.reply({
 				flags: MessageFlags.IsComponentsV2,
 				components: [generateCredits(menu)]
 			})
 
 			break;
-
+		}
 	}
 }

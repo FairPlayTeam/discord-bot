@@ -5,9 +5,8 @@ import {
 	SeparatorBuilder,
 	SeparatorSpacingSize,
 	ContainerBuilder,
-	StringSelectMenuBuilder,
-	StringSelectMenuOptionBuilder,
-	ActionRowBuilder,
+	ButtonBuilder,
+	ButtonStyle,
 } from "discord.js"
 
 import {
@@ -30,7 +29,7 @@ export const data = new SlashCommandBuilder()
 	.setDescription('Shows the server rules where the command is executed')
 	.setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
 
-export async function generateRules(actualLang = LANG.DEFAULT) {
+export function generateRules(actualLang = LANG.DEFAULT) {
 	const texts = JSON.parse(t(actualLang, 'commands.rules_show.texts'))
 
 	const separators = [
@@ -38,22 +37,17 @@ export async function generateRules(actualLang = LANG.DEFAULT) {
 		new SeparatorBuilder().setSpacing(SeparatorSpacingSize.Large)
 	]
 
-	const options = [
-		new StringSelectMenuOptionBuilder()
-			.setLabel('English')
-			.setValue('en')
-			.setEmoji(EMOJIS.FLAG_EN)
-			.setDefault(actualLang === LANG.EN),
-		new StringSelectMenuOptionBuilder()
-			.setLabel('Français')
-			.setValue('fr')
-			.setEmoji(EMOJIS.FLAG_FR)
-			.setDefault(actualLang === LANG.FR),
-	]
+	const acceptRules = new ButtonBuilder()
+		.setLabel('I read and understood the rules')
+		.setCustomId('rules_accept')
+		.setEmoji(EMOJIS.CHECK)
+		.setStyle(ButtonStyle.Success)
 
-	const menu = new StringSelectMenuBuilder()
-		.setCustomId('rules_select-language')
-		.addOptions(options)
+	const frButton = new ButtonBuilder()
+		.setLabel('Français')
+		.setCustomId('rules_change_lang')
+		.setEmoji(EMOJIS.FLAG_FR)
+		.setStyle(ButtonStyle.Primary)
 
 	const container = new ContainerBuilder()
 		.addTextDisplayComponents(formatText(texts[0]))
@@ -70,7 +64,9 @@ export async function generateRules(actualLang = LANG.DEFAULT) {
 		.addSeparatorComponents(separators[1])
 		.addTextDisplayComponents(formatText(texts[6]))
 		.addSeparatorComponents(separators[1])
-		.addActionRowComponents(wrapInRow(menu))
+		.addActionRowComponents(wrapInRow(frButton))
+		.addSeparatorComponents(separators[1])
+		.addActionRowComponents(wrapInRow(acceptRules))
 
 	return container
 }
@@ -80,12 +76,12 @@ export async function execute(interaction) {
 	
 	const lang = getLangFromInteraction(interaction)
 
-	const container = await this.generateRules(LANG.EN)
+	const container = this.generateRules(LANG.EN)
 
-	interaction.channel.send({
+	await interaction.channel.send({
 		flags: MessageFlags.IsComponentsV2,
 		components: [container]
 	})
 
-	interaction.editReply(t(lang, 'commands.ticket_show.sent'))
+	await interaction.editReply(t(lang, 'commands.tickets_show.sent'))
 }

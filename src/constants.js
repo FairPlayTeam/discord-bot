@@ -18,6 +18,7 @@ export const EMOJIS = {
   YES_OR_NO: '<:yesorno:1476992369273340067>',
   YES: '<a:yes:1476992623079325862>',
   NO: '<a:no:1476992778960506882>',
+  CHECK: '✅'
 }
 
 export const  IDS = {
@@ -50,6 +51,10 @@ export const  IDS = {
   ban :{
     yes: "ban_yes",
     no: "ban_no"
+  },
+  rules: {
+    changeLangPrefix: 'rules_change_lang',
+    accept: 'rules_accept'
   }
 }
 
@@ -71,4 +76,8 @@ export const SERVERS = {
 
 export const LINKS = {
   GITHUB_DISCORD_BOT: "https://github.com/FairPlayTeam/discord-bot"
+}
+
+export const ROLES = {
+  RULES_ACCEPTED: '1477973109574467736'
 }
