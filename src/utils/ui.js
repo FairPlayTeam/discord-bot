@@ -65,6 +65,10 @@ const createTextInputLabel = (customId, style, placeholder, title, { description
 	return textLabel
 }
 
+const verifyARole = async (member, roleId) => {
+	return await member.roles.cache.has(roleId)
+}
+
 export {
 	wrapInRow,
 	extractLang,
@@ -73,4 +77,5 @@ export {
 	formatText,
 	findMenuSelectionFromInteraction,
 	createTextInputLabel,
+	verifyARole,
 }
