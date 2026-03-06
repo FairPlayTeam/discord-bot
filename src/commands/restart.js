@@ -24,5 +24,6 @@ export const execute = async interaction => {
     } else {
         spawn('bash', [scriptPath], { stdio: 'inherit' })
     }
+    interaction.client.destroy()
     process.exit(0)
 }
