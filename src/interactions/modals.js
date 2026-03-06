@@ -29,7 +29,7 @@ export async function handleModal(interaction, context) {
 			qualities: interaction.fields.getTextInputValue('qualities'),
 			remunerated: findMenuSelectionFromInteraction(interaction.fields.getStringSelectValues('remunerated')),
 		}
-		console.log(remunerated)
+		
 		const lang = extractLang(interaction.customId)
 		await interaction.deferReply({ flags: MessageFlags.Ephemeral })
 
