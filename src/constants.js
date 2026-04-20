@@ -22,7 +22,7 @@ export const EMOJIS = {
   NOPE: '<:nope:1478088439181086733>',
 }
 
-export const  IDS = {
+export const IDS = {
   tickets: {
     langPrefix: 'tickets_lang',
     typePrefix: 'tickets_type',
@@ -81,5 +81,5 @@ export const LINKS = {
 }
 
 export const ROLES = {
-  RULES_ACCEPTED: '1478077047640428614'
+  RULES_ACCEPTED: '1394092108029100042'
 }
